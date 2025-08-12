@@ -1,0 +1,4 @@
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="05ac", RUN+="/usr/bin/usb_audio_start.sh"
+ACTION=="remove", SUBSYSTEMS=="usb", ATTRS{idVendor}=="05ac", RUN+="/usr/bin/usb_audio_stop.sh"
+#ACTION=="add", SUBSYSTEMS=="sound", KERNELS=="hw:1,0", RUN+="/usr/bin/usb_audio_start.sh"
+#ACTION=="remove", SUBSYSTEMS=="sound", KERNELS=="hw:1,0", RUN+="/usr/bin/usb_audio_stop.sh"
