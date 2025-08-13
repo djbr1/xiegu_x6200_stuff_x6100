@@ -2,6 +2,8 @@
 
 This directory contains scripts and configuration files for automatically receive radio sound in USB-C audio devices such as headphones, earphones, speakers, etc.
 
+Tested with Xiegu X6200 v1.0.6 and Apple EarPods (USB-C).
+
 A quick system idle check shows that the GStreamer bridge consumes very little CPU, making it suitable for continuous operation without noticeable performance impact. However, this remains a workaround while waiting for an official feature implementation. Use at your own risk.
 
 ## Overview
