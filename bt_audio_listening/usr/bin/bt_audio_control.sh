@@ -2,11 +2,6 @@
 PIDFILE="/tmp/bt_audio.pid"
 GST_BIN="/usr/bin/gst-launch-1.0"
 
-log() {
-    echo "[BT-AUDIO] $1" > /dev/kmsg
-}
-
-log "Script de surveillance A2DP démarré"
 echo "[BT-AUDIO] Starting A2DP watching script" > /dev/kmsg
 
 pactl subscribe | while read -r line; do
