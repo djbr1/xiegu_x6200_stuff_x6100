@@ -12,5 +12,4 @@ The setup includes:
 
 - **`/usr/bin/bt_audio_control.sh`** – a script for starting or stopping a GStreamer audio bridge.
 
-The script can be launched manually or automatically at startup after proper configuration  of the radio's operating system.
-
+The script can be launched manually or automatically at startup after proper configuration  of the radio's operating system. For example, it can be executed after launching the **`x6200_ui_v100`** radio application in **`/usr/share/support/userapp`**.

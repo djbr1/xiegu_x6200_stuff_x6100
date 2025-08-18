@@ -3,9 +3,10 @@ PIDFILE="/tmp/bt_audio.pid"
 GST_BIN="/usr/bin/gst-launch-1.0"
 
 echo "[BT-AUDIO] Starting A2DP watching script" > /dev/kmsg
+sleep 1
 
 pactl subscribe | while read -r line; do
-    if echo "$line" | grep -q "Event 'new' on sink" && ! echo "$line" | grep -q "sink-input"; then
+    if [[ "$line" =~ Event\ \'new\'\ on\ sink && ! "$line" =~ sink-input ]]; then
         sink=$(pactl list short sinks | grep "bluez_sink.*a2dp_sink" | head -n1)
         if [ -n "$sink" ]; then
             mac=$(echo "$sink" | awk -F'[.]' '{print $2}')
@@ -25,7 +26,7 @@ pactl subscribe | while read -r line; do
             fi
         fi
     fi
-    if echo "$line" | grep -q "Event 'remove' on sink" && ! echo "$line" | grep -q "sink-input"; then
+    if [[ "$line" =~ Event\ \'remove\'\ on\ sink && ! "$line" =~ sink-input ]]; then
         if [ -n "$PIDFILE" ]; then
             echo "[BT-AUDIO] Device removed - stopping pipeline" > /dev/kmsg 
             PID=$(cat "$PIDFILE")
